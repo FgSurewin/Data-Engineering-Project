@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Topaz Engine</title>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h2>Topaz Search Engine</h2>
+
+            <h5>Please type your search query below</h5>
+            <input type="text" placeholder="Search..">
+            <br />
+            <input id="submit" type="button" value="Submit" />
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody id="result"></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+
+        function run() {
+            // Do Something..
+        }
+
+        var submit = document.getElementById("submit");
+        if (submit != null) {
+            submit.addEventListener("click", run);
+        }
+
+        run();
+    </script>
+</body>
+
+</html>
