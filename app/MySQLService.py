@@ -79,7 +79,7 @@ class MySQLService:
     def create_keyword_table(self):
         sql_statement_2 = f"""
               CREATE TABLE IF NOT EXISTS {self.db_name}.{self.table_3_keyword}(
-                keyword_id INT NOT NULL AUTO_INCREMENT,
+                keyword_id VARCHAR(50) NOT NULL,
                 text TEXT NOT NULL, 
                 PRIMARY KEY (keyword_id)
               );
@@ -89,12 +89,13 @@ class MySQLService:
     def create_link_table(self):
         sql_statement_2 = f"""
               CREATE TABLE IF NOT EXISTS {self.db_name}.{self.table_4_link}(
-                link_id INT NOT NULL AUTO_INCREMENT,
+                link_id VARCHAR(50) NOT NULL,
                 link_title TEXT NOT NULL,
                 link_url TEXT NOT NULL,
                 engine_id INT NOT NULL,
                 is_ad BOOLEAN DEFAULT FALSE,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                click_time INT NOT NULL, 
                 PRIMARY KEY (link_id),
                 FOREIGN KEY(engine_id) REFERENCES {db_name}.{self.table_2_engine}(engine_id)
               );
@@ -105,9 +106,10 @@ class MySQLService:
         sql_statement_2 = f"""
               CREATE TABLE IF NOT EXISTS {self.db_name}.{self.table_5_frequency}(
                 freq_id INT NOT NULL AUTO_INCREMENT,
-                keyword_id INT NOT NULL, 
-                link_id INT NOT NULL,
+                keyword_id VARCHAR(50) NOT NULL, 
+                link_id VARCHAR(50) NOT NULL,
                 freq_value INT NOT NULL,
+                word TEXT NOT NULL,
                 PRIMARY KEY (freq_id),
                 FOREIGN KEY(keyword_id) REFERENCES {self.db_name}.{self.table_3_keyword}(keyword_id),
                 FOREIGN KEY(link_id) REFERENCES {self.db_name}.{self.table_4_link}(link_id)
@@ -123,7 +125,7 @@ class MySQLService:
         """Connect to AWS RDS MySQL database server"""
 
         conn = None
-
+        # output = []
         try:
 
             # Connect to server

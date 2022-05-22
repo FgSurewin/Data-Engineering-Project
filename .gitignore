@@ -1,5 +1,6 @@
 # Ignore python venv
 search_engine_project
+web
 __pycache__
 
 build/
