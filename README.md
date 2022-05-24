@@ -21,3 +21,4 @@ click_time: INT
 5) Query lastest result from stage table -> Tokenlize
 6) Send the result to front-end. + save data to those three tables
 7) User click the link -> update the click_time
+8) End
